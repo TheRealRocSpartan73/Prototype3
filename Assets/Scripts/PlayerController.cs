@@ -26,10 +26,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Check for space bar and make player jump
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround == true)
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround == true && !gameOver)
         {
             playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); //Burst the impulse force.
             isOnGround = false;
+            //Spacebar triggers the "Running Jump" animation
             playerAnimation.SetTrigger("Jump_trig");
         }
     }
@@ -44,6 +45,9 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("***** GAME OVER MAN ******");
             gameOver = true;
+            //play the death animation
+            playerAnimation.SetInteger("DeathType_int", 1);
+            playerAnimation.SetBool("Death_b", true);
         }
 
     }
