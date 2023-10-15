@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
 {
-    private float speed = 30f;
+    private float speed = 20f;
     private PlayerController playerControllerScript;
     private float leftBoundary = -10f; //Left X Boundary of ground object
     // Start is called before the first frame update
